@@ -7,6 +7,7 @@ def setup():
         
 def draw ():
     
+    #hallo
     circle(210, 410, 30)
     circle(240, 410, 30)
     circle(270, 410, 30)
