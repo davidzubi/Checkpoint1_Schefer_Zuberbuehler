@@ -10,45 +10,36 @@ def setup():
     size(900, 900)
     textSize(64)
     textAlign(CENTER)
+    global img
+    global img1
+    global img2
+    img = loadImage ("fest.jpg")
+    img1 = loadImage ("fluessig.jpg")
+    img2 = loadImage ("gas.jpg")
     
     
 # Sich wiederholende draw() Funktion
 def draw():
     background(255)
     draw_ruler(200, 800, 500)
-    text(str(pointerVal) + " Grad Celsisus", width/2, height=700)
-        
+    if pointerVal == 0:
+        text (" fest", width/2, height=700)
+    if pointerVal == 1:
+        text (" fluessig", width/2, height=700)
+    if pointerVal == 2:
+        text (" gasfoermig", width/2, height=700)
+    global img
+    global img1
+    global img2
+    if pointerVal == 0:
+        image (img, 100, 20)
+    if pointerVal == 1:
+        image (img1, 100, 20)
+    if pointerVal == 2:
+        image (img2, 100, 20)
+     
     
     
-    circle(210, 410, 30)
-    circle(240, 410, 30)
-    circle(270, 410, 30)
-    circle(300, 410, 30)
-    circle(330, 410, 30)
-    circle(360, 410, 30)
-    circle(390, 410, 30)
-    circle(420, 410, 30)
-    circle(210, 440, 30)
-    circle(240, 440, 30)
-    circle(270, 440, 30)
-    circle(300, 440, 30)
-    circle(330, 440, 30)
-    circle(360, 440, 30)
-    circle(390, 440, 30)
-    circle(420, 440, 30)
-    circle(210, 470, 30)
-    circle(240, 470, 30)
-    circle(270, 470, 30)
-    circle(300, 470, 30)
-    circle(330, 470, 30)
-    circle(360, 470, 30)
-    circle(390, 470, 30)
-    circle(420, 470, 30)
-
-
-    line(70, 120, 70, 500)
-    line(550, 120, 550, 500)
-    line(70, 500, 550, 500)
 
     
 # Funktion: Schieberegler generieren
@@ -100,4 +91,6 @@ def draw_ruler(objX, objY, objLength):
     circle(pointerPos, objY, pointerRadius)
     
     # Eingestellter Wert anhand der Schieberposition ermitteln
-    pointerVal = int(100 / float(objLength) * (pointerPos - objX))
+    pointerVal = int(2 / float(objLength) * (pointerPos - objX))
+
+    
