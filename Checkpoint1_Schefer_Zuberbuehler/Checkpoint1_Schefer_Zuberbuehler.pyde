@@ -22,20 +22,20 @@ def setup():
 def draw():
     background(255)
     draw_ruler(200, 800, 500)
-    if pointerVal == 0:
+    if pointerVal < 33:
         text (" fest", width/2, height=700)
-    if pointerVal == 1:
+    if 32 < pointerVal < 67:
         text (" fluessig", width/2, height=700)
-    if pointerVal == 2:
+    if pointerVal > 66:
         text (" gasfoermig", width/2, height=700)
     global img
     global img1
     global img2
-    if pointerVal == 0:
+    if pointerVal < 33:
         image (img, 100, 20)
-    if pointerVal == 1:
+    if 32 < pointerVal < 67:
         image (img1, 100, 20)
-    if pointerVal == 2:
+    if pointerVal > 66:
         image (img2, 100, 20)
      
     
@@ -91,6 +91,6 @@ def draw_ruler(objX, objY, objLength):
     circle(pointerPos, objY, pointerRadius)
     
     # Eingestellter Wert anhand der Schieberposition ermitteln
-    pointerVal = int(2 / float(objLength) * (pointerPos - objX))
+    pointerVal = int(99 / float(objLength) * (pointerPos - objX))
 
     
