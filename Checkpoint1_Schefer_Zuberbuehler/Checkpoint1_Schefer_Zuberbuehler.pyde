@@ -1,4 +1,4 @@
-
+#Schiebereglerfunktion von Simon Hefti übernommen
 # pointerPos (Integer): Position des Pointers in Pixeln
 # pointerVal (Float):   Eingestellter Wert (0 - 100)
 movingMode = False
@@ -13,6 +13,7 @@ def setup():
     global img
     global img1
     global img2
+#Bilder aus dem Ordner "Data" laden
     img = loadImage ("fest.jpg")
     img1 = loadImage ("fluessig.jpg")
     img2 = loadImage ("gas.jpg")
@@ -22,23 +23,17 @@ def setup():
 def draw():
     background(255)
     draw_ruler(200, 800, 500)
+    
+#Bereich in dem jeweils das passende Bild und der Text definiert wird.
     if pointerVal < 33:
         text (" fest", width/2, height=700)
-    if 32 < pointerVal < 67:
-        text (" fluessig", width/2, height=700)
-    if pointerVal > 66:
-        text (" gasfoermig", width/2, height=700)
-    global img
-    global img1
-    global img2
-    if pointerVal < 33:
         image (img, 100, 20)
     if 32 < pointerVal < 67:
+        text (" fluessig", width/2, height=700)
         image (img1, 100, 20)
     if pointerVal > 66:
+        text (" gasfoermig", width/2, height=700)
         image (img2, 100, 20)
-     
-    
     
 
     
