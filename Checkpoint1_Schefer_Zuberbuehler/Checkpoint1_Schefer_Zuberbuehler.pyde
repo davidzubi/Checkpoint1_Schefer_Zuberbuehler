@@ -23,17 +23,18 @@ def setup():
 def draw():
     background(255)
     draw_ruler(200, 800, 500)
-    
+#Titel bei jedem Bereich vorhanden
+    text (" Aggregatzustaende", width/2, height=60)
 #Bereich in dem jeweils das passende Bild und der Text definiert wird.
     if pointerVal < 33:
         text (" fest", width/2, height=700)
-        image (img, 100, 20)
+        image (img, 100, 100)
     if 32 < pointerVal < 67:
         text (" fluessig", width/2, height=700)
-        image (img1, 100, 20)
+        image (img1, 100, 100)
     if pointerVal > 66:
         text (" gasfoermig", width/2, height=700)
-        image (img2, 100, 20)
+        image (img2, 100, 100)
     
 
     
