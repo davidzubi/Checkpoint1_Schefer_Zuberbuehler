@@ -1,40 +1,77 @@
-#Schiebereglerfunktion von Simon Hefti übernommen
+# Schiebereglerfunktion von Simon Hefti übernommen
 # pointerPos (Integer): Position des Pointers in Pixeln
 # pointerVal (Float):   Eingestellter Wert (0 - 100)
 movingMode = False
 pointerPos = 0
 pointerVal = 1.0
+a = 1
+
 
 # Initialisierung
 def setup():
     size(900, 900)
-    textSize(64)
+    textSize(30)
     textAlign(CENTER)
     global img
     global img1
     global img2
-#Bilder aus dem Ordner "Data" laden
-    img = loadImage ("fest.jpg")
-    img1 = loadImage ("fluessig.jpg")
-    img2 = loadImage ("gas.jpg")
+    global img3
+    global img4
+    global img5
+#Bilder aus dem Ordner "data" laden
+    img = loadImage ("fest1.jpg")
+    img1 = loadImage ("fluessig1.jpg")
+    img2 = loadImage ("gas1.jpg")
+    img3 = loadImage ("fest2.jpg")
+    img4 = loadImage ("fluessig2.jpg")
+    img5 = loadImage ("gas2.jpg")
     
+   # if mouseX in range(50,700) and mouseY in range(700,750) and mousePressed == True:
+    #    a = -a
+        
     
 # Sich wiederholende draw() Funktion
 def draw():
+    
+        
     background(255)
     draw_ruler(200, 800, 500)
+    rect (50, 700, 50, 50)
 #Titel bei jedem Bereich vorhanden
-    text (" Aggregatzustaende", width/2, height=60)
-#Bereich in dem jeweils das passende Bild und der Text definiert wird.
-    if pointerVal < 33:
-        text (" fest", width/2, height=700)
-        image (img, 100, 100)
-    if 32 < pointerVal < 67:
-        text (" fluessig", width/2, height=700)
-        image (img1, 100, 100)
-    if pointerVal > 66:
-        text (" gasfoermig", width/2, height=700)
-        image (img2, 100, 100)
+    text (" Aggregatzustaende", width/2, 60)
+    text (" Temperatur:", 130, 650)
+#Bereich in dem jeweils das passende Bild und der Text definiert wird.        
+    if a == 1:
+        text (" Wasser", 160, 740)
+        if pointerVal/20 < 2:
+            text (str(pointerVal/20) +" Grad Celsius", width/2, height=650)
+            text (" fest", width/2, height=720)
+            image (img3, 100, 100)
+        if 1 < pointerVal/20 < 100:
+            text (str(pointerVal/20) +" Grad Celsius", width/2, height=650)
+            text (" fluessig", width/2, height=720)
+            image (img4, 100, 100)
+        if pointerVal/20 > 99:
+            text (str(pointerVal/20) +" Grad Celsius", width/2, height=650)
+            text (" gasfoermig", width/2, height=720)
+            image (img5, 100, 100)
+    
+    if a == -1:
+        text (" Blei", 160, 740)
+        if pointerVal < 327:
+            text (str(pointerVal) +" Grad Celsius", width/2, height=650)
+            text (" fest", width/2, height=720)
+            image (img, 100, 100)
+        if 327 < pointerVal < 1749:
+            text (str(pointerVal) +" Grad Celsius", width/2, height=650)
+            text (" fluessig", width/2, height=720)
+            image (img1, 100, 100)
+        if pointerVal > 1749:
+            text (str(pointerVal) +" Grad Celsius", width/2, height=650)
+            text (" gasfoermig", width/2, height=720)
+            image (img2, 100, 100)
+            
+
     
 
     
@@ -87,6 +124,13 @@ def draw_ruler(objX, objY, objLength):
     circle(pointerPos, objY, pointerRadius)
     
     # Eingestellter Wert anhand der Schieberposition ermitteln
-    pointerVal = int(99 / float(objLength) * (pointerPos - objX))
+    pointerVal = int(2000 / float(objLength) * (pointerPos - objX))
+
+def mouseReleased(): 
+    global a
+    if mouseX in range(50,100) and mouseY in range(700,750):
+        a = -a
+
+
 
     
