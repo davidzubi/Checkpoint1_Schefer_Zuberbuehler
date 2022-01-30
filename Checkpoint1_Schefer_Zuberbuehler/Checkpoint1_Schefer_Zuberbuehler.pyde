@@ -25,15 +25,9 @@ def setup():
     img3 = loadImage ("fest2.jpg")
     img4 = loadImage ("fluessig2.jpg")
     img5 = loadImage ("gas2.jpg")
-    
-   # if mouseX in range(50,700) and mouseY in range(700,750) and mousePressed == True:
-    #    a = -a
         
-    
 # Sich wiederholende draw() Funktion
-def draw():
-    
-        
+def draw():        
     background(255)
     draw_ruler(200, 800, 500)
     rect (50, 700, 50, 50)
@@ -44,31 +38,31 @@ def draw():
     if a == 1:
         text (" Wasser", 160, 740)
         if pointerVal/20 < 2:
-            text (str(pointerVal/20) +" Grad Celsius", width/2, height=650)
-            text (" fest", width/2, height=720)
+            text (str(pointerVal/20) +" Grad Celsius", width/2, 650)
+            text (" fest", width/2, 720)
             image (img3, 100, 100)
         if 1 < pointerVal/20 < 100:
-            text (str(pointerVal/20) +" Grad Celsius", width/2, height=650)
-            text (" fluessig", width/2, height=720)
+            text (str(pointerVal/20) +" Grad Celsius", width/2, 650)
+            text (" fluessig", width/2, 720)
             image (img4, 100, 100)
         if pointerVal/20 > 99:
-            text (str(pointerVal/20) +" Grad Celsius", width/2, height=650)
-            text (" gasfoermig", width/2, height=720)
+            text (str(pointerVal/20) +" Grad Celsius", width/2, 650)
+            text (" gasfoermig", width/2, 720)
             image (img5, 100, 100)
     
     if a == -1:
         text (" Blei", 160, 740)
         if pointerVal < 327:
-            text (str(pointerVal) +" Grad Celsius", width/2, height=650)
+            text (str(pointerVal) +" Grad Celsius", width/2, 650)
             text (" fest", width/2, height=720)
             image (img, 100, 100)
         if 327 < pointerVal < 1749:
-            text (str(pointerVal) +" Grad Celsius", width/2, height=650)
+            text (str(pointerVal) +" Grad Celsius", width/2, 650)
             text (" fluessig", width/2, height=720)
             image (img1, 100, 100)
         if pointerVal > 1749:
-            text (str(pointerVal) +" Grad Celsius", width/2, height=650)
-            text (" gasfoermig", width/2, height=720)
+            text (str(pointerVal) +" Grad Celsius", width/2, 650)
+            text (" gasfoermig", width/2, 720)
             image (img2, 100, 100)
             
 
