@@ -1,6 +1,6 @@
 # Schiebereglerfunktion von Simon Hefti übernommen
 # pointerPos (Integer): Position des Pointers in Pixeln
-# pointerVal (Float):   Eingestellter Wert (0 - 100)
+# pointerVal (Float):   Eingestellter Wert (0 - 2000)
 movingMode = False
 pointerPos = 0
 pointerVal = 1.0
@@ -34,7 +34,8 @@ def draw():
 #Titel bei jedem Bereich vorhanden
     text (" Aggregatzustaende", width/2, 60)
     text (" Temperatur:", 130, 650)
-#Bereich in dem jeweils das passende Bild und der Text definiert wird.        
+#Bereich in dem jeweils das passende Bild und der Text definiert wird. 
+#2 Bereiche wenn a == 1 (Wasser) und a == -1 (Blei)       
     if a == 1:
         text (" Wasser", 160, 740)
         if pointerVal/20 < 2:
@@ -120,6 +121,7 @@ def draw_ruler(objX, objY, objLength):
     # Eingestellter Wert anhand der Schieberposition ermitteln
     pointerVal = int(2000 / float(objLength) * (pointerPos - objX))
 
+# Funktion Button wenn in Bereich des Buttons geklickt und losgelassen wird Änderung der Variable a
 def mouseReleased(): 
     global a
     if mouseX in range(50,100) and mouseY in range(700,750):
